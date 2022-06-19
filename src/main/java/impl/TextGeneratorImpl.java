@@ -5,7 +5,9 @@ import interfaces.TextGenerator;
 import org.apache.commons.lang.RandomStringUtils;
 
 import java.io.File;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,6 +16,8 @@ public class TextGeneratorImpl implements TextGenerator {
     private final Logger logger = Logger.getLogger(TextGeneratorImpl.class.getName());
 
     private final static String allSymbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toLowerCase() + "0123456789";
+
+    private final int SPLITTER_COUNT = 10;
 
     public final long charsInLine;
 
@@ -34,7 +38,7 @@ public class TextGeneratorImpl implements TextGenerator {
     public List<File> generateTextParts() {
 
         long totalMemory = Runtime.getRuntime().maxMemory();
-        long linesInOneFile = totalMemory / (charsInLine * 10);
+        long linesInOneFile = totalMemory / (charsInLine * SPLITTER_COUNT);
         long tempPartsCount = totalLines / linesInOneFile;
 
         if (totalMemory > (charsInLine * totalLines)) {
@@ -68,7 +72,9 @@ public class TextGeneratorImpl implements TextGenerator {
             }
         }
 
-        logger.log(Level.INFO, "Generating and writing temp Files is ready! \nParts Count = " + tempPartsCount);
+        logger.log(Level.INFO, "Generating and writing temp Files is ready!"
+                + "\nParts Count = " + tempPartsCount
+                + "\nlinesInOneFile: " + linesInOneFile);
 
         return tempFiles;
     }

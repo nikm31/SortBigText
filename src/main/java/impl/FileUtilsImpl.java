@@ -2,7 +2,10 @@ package impl;
 
 import interfaces.FileUtils;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
@@ -19,7 +22,7 @@ public class FileUtilsImpl implements FileUtils {
 
     @Override
     public File writeFileToDisk(String text, String filename) {
-        Path fileToWrite = currentPath.resolve(filename);
+        Path fileToWrite = currentPath.resolve(filename + ".txt");
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileToWrite.toString()))) {
             logger.log(Level.INFO, "Writing file to disk: " + filename);
             writer.write(text);
