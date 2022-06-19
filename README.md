@@ -11,5 +11,5 @@ for CUSTIS
 - SorterByPriorityQueue
 - SorterByMap
 
-Сложность O(kN) - k количество временных файлов
+Сложность O(kN), где k количество временных файлов
 
