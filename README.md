@@ -10,5 +10,3 @@ for CUSTIS
 - SorterByPriorityQueue
 - SorterByMap
 
-Для просмотра промежуточных файлов - закомментируйте или удалите строку № 112 в SorterImpl
-
