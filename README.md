@@ -13,7 +13,7 @@ for CUSTIS
 - создает временные файлы с учетом входных параметров (учитывает доступную ОЗУ)
 - возвращает список временных файлов
 
-## 2 - Сортировщик:
+## 2 - Сортировщик
 - сортирует временные файлы
 - отсортированные части сравниваются и объединяются в итоговый файл out.txt
 
@@ -21,3 +21,4 @@ for CUSTIS
 > - SorterByPriorityQueue
 > - SorterByMap
 
+[![N|Solid](https://i.ibb.co/0J3bqdZ/sortbigtext.png)](https://github.com/nikm31/SortBigText)
